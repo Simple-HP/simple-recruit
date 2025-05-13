@@ -1,47 +1,47 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { MapPin } from "lucide-react"
-import Link from "next/link"
-import { EmployeeRelationship } from "@/components/employee-relationship"
-import { CeoMessage } from "@/components/ceo-message"
-import { HamburgerMenu } from "@/components/hamburger-menu"
-import { WorkEpisodes } from "@/components/work-episodes"
-import { SimpleFulfillment } from "@/components/simple-fulfillment"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { MapPin } from "lucide-react";
+import Link from "next/link";
+import { EmployeeRelationship } from "@/components/employee-relationship";
+import { CeoMessage } from "@/components/ceo-message";
+import { HamburgerMenu } from "@/components/hamburger-menu";
+import { WorkEpisodes } from "@/components/work-episodes";
+import { SimpleFulfillment } from "@/components/simple-fulfillment";
 // import { Calendar } from 'lucide-react' // Removed duplicate import
 
 export default function Home() {
-  const [showHeader, setShowHeader] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [open, setOpen] = useState(false)
-  const [showReferralFlow, setShowReferralFlow] = useState(false)
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [showReferralFlow, setShowReferralFlow] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
+      const currentScrollY = window.scrollY;
 
       // スクロール位置が0の場合、またはスクロールが上向きの場合はヘッダーを表示
       if (currentScrollY <= 0) {
-        setShowHeader(true)
+        setShowHeader(true);
       }
       // スクロールが下向きの場合はヘッダーを非表示
       else if (currentScrollY > lastScrollY) {
-        setShowHeader(false)
+        setShowHeader(false);
       }
       // スクロールが上向きの場合はヘッダーを表示
       else if (currentScrollY < lastScrollY) {
-        setShowHeader(true)
+        setShowHeader(true);
       }
 
-      setLastScrollY(currentScrollY)
-    }
+      setLastScrollY(currentScrollY);
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastScrollY])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -67,8 +67,8 @@ export default function Home() {
               href="#referral"
               className="text-sm font-medium hover:text-primary transition-colors"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("referral")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document.getElementById("referral")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               リファラル応募
@@ -77,8 +77,8 @@ export default function Home() {
               href="#positions"
               className="text-sm font-medium hover:text-primary transition-colors"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("positions")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document.getElementById("positions")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               募集職種
@@ -87,8 +87,8 @@ export default function Home() {
               href="#employee-relationship"
               className="text-sm font-medium hover:text-primary transition-colors"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("employee-relationship")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document.getElementById("employee-relationship")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               社員相関図
@@ -97,8 +97,8 @@ export default function Home() {
               href="#work-episodes"
               className="text-sm font-medium hover:text-primary transition-colors"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("work-episodes")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document.getElementById("work-episodes")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               エピソード
@@ -107,8 +107,8 @@ export default function Home() {
               href="#simple-fulfillment"
               className="text-sm font-medium hover:text-primary transition-colors"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("simple-fulfillment")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document.getElementById("simple-fulfillment")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               Simple but unique
@@ -117,8 +117,8 @@ export default function Home() {
               href="#company-events"
               className="text-sm font-medium hover:text-primary transition-colors"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("company-events")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document.getElementById("company-events")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               社内行事
@@ -127,14 +127,14 @@ export default function Home() {
               href="#ceo-message"
               className="text-sm font-medium hover:text-primary transition-colors"
               onClick={(e) => {
-                e.preventDefault()
-                const ceoSection = document.getElementById("ceo-message")
+                e.preventDefault();
+                const ceoSection = document.getElementById("ceo-message");
                 if (ceoSection) {
                   // スクロール位置を少し上に調整して、見出しと写真の両方が見えるようにする
-                  const headerHeight = 80 // ヘッダーの高さの概算
-                  const yOffset = -headerHeight // 少し上にオフセット
-                  const y = ceoSection.getBoundingClientRect().top + window.pageYOffset + yOffset
-                  window.scrollTo({ top: y, behavior: "smooth" })
+                  const headerHeight = 80; // ヘッダーの高さの概算
+                  const yOffset = -headerHeight; // 少し上にオフセット
+                  const y = ceoSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                  window.scrollTo({ top: y, behavior: "smooth" });
                 }
               }}
             >
@@ -165,9 +165,9 @@ export default function Home() {
             href="#referral"
             className="px-2 py-3 hover:bg-primary/10 rounded-none transition-colors"
             onClick={(e) => {
-              e.preventDefault()
-              document.getElementById("referral")?.scrollIntoView({ behavior: "smooth" })
-              setOpen(false)
+              e.preventDefault();
+              document.getElementById("referral")?.scrollIntoView({ behavior: "smooth" });
+              setOpen(false);
             }}
           >
             リファラル応募
@@ -176,9 +176,9 @@ export default function Home() {
             href="#positions"
             className="px-2 py-3 hover:bg-primary/10 rounded-none transition-colors"
             onClick={(e) => {
-              e.preventDefault()
-              document.getElementById("positions")?.scrollIntoView({ behavior: "smooth" })
-              setOpen(false)
+              e.preventDefault();
+              document.getElementById("positions")?.scrollIntoView({ behavior: "smooth" });
+              setOpen(false);
             }}
           >
             募集職種
@@ -187,9 +187,9 @@ export default function Home() {
             href="#employee-relationship"
             className="px-2 py-3 hover:bg-primary/10 rounded-none transition-colors"
             onClick={(e) => {
-              e.preventDefault()
-              document.getElementById("employee-relationship")?.scrollIntoView({ behavior: "smooth" })
-              setOpen(false)
+              e.preventDefault();
+              document.getElementById("employee-relationship")?.scrollIntoView({ behavior: "smooth" });
+              setOpen(false);
             }}
           >
             社員相関図
@@ -198,9 +198,9 @@ export default function Home() {
             href="#work-episodes"
             className="px-2 py-3 hover:bg-primary/10 rounded-none transition-colors"
             onClick={(e) => {
-              e.preventDefault()
-              document.getElementById("work-episodes")?.scrollIntoView({ behavior: "smooth" })
-              setOpen(false)
+              e.preventDefault();
+              document.getElementById("work-episodes")?.scrollIntoView({ behavior: "smooth" });
+              setOpen(false);
             }}
           >
             エピソード
@@ -209,9 +209,9 @@ export default function Home() {
             href="#simple-fulfillment"
             className="px-2 py-3 hover:bg-primary/10 rounded-none transition-colors"
             onClick={(e) => {
-              e.preventDefault()
-              document.getElementById("simple-fulfillment")?.scrollIntoView({ behavior: "smooth" })
-              setOpen(false)
+              e.preventDefault();
+              document.getElementById("simple-fulfillment")?.scrollIntoView({ behavior: "smooth" });
+              setOpen(false);
             }}
           >
             Simple but unique
@@ -220,9 +220,9 @@ export default function Home() {
             href="#company-events"
             className="px-2 py-3 hover:bg-primary/10 rounded-none transition-colors"
             onClick={(e) => {
-              e.preventDefault()
-              document.getElementById("company-events")?.scrollIntoView({ behavior: "smooth" })
-              setOpen(false)
+              e.preventDefault();
+              document.getElementById("company-events")?.scrollIntoView({ behavior: "smooth" });
+              setOpen(false);
             }}
           >
             社内行事
@@ -231,15 +231,15 @@ export default function Home() {
             href="#ceo-message"
             className="px-2 py-3 hover:bg-primary/10 rounded-none transition-colors"
             onClick={(e) => {
-              e.preventDefault()
-              const ceoSection = document.getElementById("ceo-message")
+              e.preventDefault();
+              const ceoSection = document.getElementById("ceo-message");
               if (ceoSection) {
                 // スクロール位置を少し上に調整して、見出しと写真の両方が見えるようにする
-                const headerHeight = 80 // ヘッダーの高さの概算
-                const yOffset = -headerHeight // 少し上にオフセット
-                const y = ceoSection.getBoundingClientRect().top + window.pageYOffset + yOffset
-                window.scrollTo({ top: y, behavior: "smooth" })
-                setOpen(false)
+                const headerHeight = 80; // ヘッダーの高さの概算
+                const yOffset = -headerHeight; // 少し上にオフセット
+                const y = ceoSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+                setOpen(false);
               }
             }}
           >
@@ -341,7 +341,9 @@ export default function Home() {
           </div>
 
           <div
-            className={`transition-all duration-300 overflow-hidden ${showReferralFlow ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
+            className={`transition-all duration-300 overflow-hidden ${
+              showReferralFlow ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+            }`}
           >
             <div className="mb-10">
               <p className="text-lg text-muted-foreground mb-6">
@@ -666,8 +668,8 @@ export default function Home() {
                       href="#referral"
                       className="hover:text-white transition-colors"
                       onClick={(e) => {
-                        e.preventDefault()
-                        document.getElementById("referral")?.scrollIntoView({ behavior: "smooth" })
+                        e.preventDefault();
+                        document.getElementById("referral")?.scrollIntoView({ behavior: "smooth" });
                       }}
                     >
                       リファラル応募
@@ -693,5 +695,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
