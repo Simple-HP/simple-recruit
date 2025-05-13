@@ -1,22 +1,28 @@
-import type React from "react"
-import type { Metadata } from "next"
+import type React from "react";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Simple株式会社 | 採用サイト",
   description:
     "Simple株式会社の採用情報サイトです。人材コーディネーターなどの募集職種、仕事内容、働き方についてご紹介しています。",
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
-import ClientLayout from "./ClientLayout"
+import ClientLayout from "./ClientLayout";
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html
+      lang="ja"
+      className="light" // SSR でも同じクラスを付与
+      style={{ colorScheme: "light" }} // テーマと一致させる
+      suppressHydrationWarning // 差分による警告を抑制
+    >
       <head>
         <style>{`
           body, input, button, textarea, select, option {
@@ -57,8 +63,5 @@ export default function RootLayout({
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
-  )
+  );
 }
-
-
-import './globals.css'
