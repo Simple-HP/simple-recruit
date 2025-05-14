@@ -28,7 +28,7 @@ export default function CareerAdvisorEpisode() {
         {/* ヒーローセクション */}
         <div className="relative w-full h-[40vh] md:h-[50vh] overflow-hidden">
           <Image
-            src="/career-advisor-headset.webp"
+            src="https://drive.google.com/file/d/16xcx6cr6cO9r5ZRo9z01jWFqSDocaPA7/view?usp=drive_link"
             alt="キャリアアドバイザーの様子"
             fill
             className="object-cover"
