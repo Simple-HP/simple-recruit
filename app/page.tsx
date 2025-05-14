@@ -252,7 +252,7 @@ export default function Page() {
         {/* 背景画像 */}
         <div className="absolute inset-0">
           <Image
-            src="/team-members-peace-signs-new.jpeg"
+            src="http://simples.co.jp/wp-content/uploads/2023/11/2706ec5b6387e816b5b67ee684dd81b5-scaled.jpg"
             alt="Simple株式会社のチームメンバー"
             fill
             className="object-cover"
